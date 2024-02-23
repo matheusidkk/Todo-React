@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './CriadorTodo.css';
 
 export default function CriadorTodo(props) {
   const [nomeTarefa, setNomeTarefa] = useState('');
   const [vezesTarefa, setVezesTarefa] = useState(0);
+  const criadorNomeRef = useRef(null);
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -14,6 +15,10 @@ export default function CriadorTodo(props) {
       setVezesTarefa(0);
     }
   };
+
+  useEffect(() => {
+    criadorNomeRef.current.focus();
+  }, []);
 
   return (
     <div className="CriadorTodo">
@@ -34,6 +39,7 @@ export default function CriadorTodo(props) {
           value={nomeTarefa}
           onChange={(e) => setNomeTarefa(e.target.value)}
           onKeyPress={handleKeyPress} // Adiciona o manipulador de eventos para a tecla Enter
+          ref={criadorNomeRef} // Associando a ref ao input
         />
         <div></div>
         <input
