@@ -20,6 +20,12 @@ export default function CriadorTodo(props) {
       <button className="criadorFechar" onClick={props.criadorFecharFuncao}>
         v
       </button>
+      <div className="nomesInputs">
+        <div>Nome</div>
+        <div></div>
+        <div>Vezes concluida</div>
+        <div></div>
+      </div>
       <div className="criadorInputs">
         <input
           type="text"
@@ -29,6 +35,7 @@ export default function CriadorTodo(props) {
           onChange={(e) => setNomeTarefa(e.target.value)}
           onKeyPress={handleKeyPress} // Adiciona o manipulador de eventos para a tecla Enter
         />
+        <div></div>
         <input
           type="number"
           className="criadorVezes"
@@ -36,10 +43,9 @@ export default function CriadorTodo(props) {
           onChange={(e) => setVezesTarefa(e.target.value)}
           onKeyPress={handleKeyPress} // Adiciona o manipulador de eventos para a tecla Enter
         />
+        <div></div>
+        <button className="criadorCriar" onClick={() => props.addTarefa(nomeTarefa, vezesTarefa)}>Criar</button>
       </div>
-      <button className="criadorCriar" onClick={() => props.addTarefa(nomeTarefa, vezesTarefa)}>
-        Criar
-      </button>
     </div>
   );
 }

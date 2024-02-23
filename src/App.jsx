@@ -18,8 +18,8 @@ function App() {
     setTarefas(Object.entries(dados));
   }
 
-  // Funções para gerenciar as tarefas
-  const funcsTarefas = (nomeTarefa, vezesTarefa) => {
+  // Funções para adicionar uma tarefas
+  const addTarefas = (nomeTarefa, vezesTarefa) => {
     const novosDados = {
       ...data,
       [nomeTarefa]: {
@@ -28,6 +28,20 @@ function App() {
       },
     };
     setCriandoTarefa(false);
+    atualizarTarefas(novosDados);
+  }
+
+  // Função para concluir uma tarefa
+  const concTarefa = (nomeTarefa, vezesTarefa) => {
+    console.log(tarefas)
+    const novosDados = { ...data,
+      [nomeTarefa]: {
+        vezes: vezesTarefa,
+        concluida: true
+      }
+    };
+    console.log(tarefas)
+    updateData(novosDados);
     atualizarTarefas(novosDados);
   }
 
@@ -46,7 +60,8 @@ function App() {
       todoID={index}
       todoNome={nomeTarefa}
       todoVezes={tarefa.vezes}
-      concluirTarefa={funcsTarefas}
+      todoConcluida={tarefa.concluida}
+      concluirTarefa={concTarefa}
       excluirTarefa={excTarefa}
     />
   ));
@@ -65,13 +80,13 @@ function App() {
         <button
           className="criarTodo"
           style={{
-            height: criandoTarefa ? '250px' : '70px',
+            height: criandoTarefa ? '205px' : '70px',
             cursor: criandoTarefa ? 'default' : 'pointer',
           }}
           onClick={criandoTarefa ? null : () => setCriandoTarefa(true)}
         >
           {criandoTarefa ? 
-            <CriadorTodo criadorFecharFuncao={() => setCriandoTarefa(false)} addTarefa={funcsTarefas}/> : 'Criar tarefa'}
+            <CriadorTodo criadorFecharFuncao={() => setCriandoTarefa(false)} addTarefa={addTarefas}/> : 'Criar tarefa'}
         </button>
       </main>
     </div>

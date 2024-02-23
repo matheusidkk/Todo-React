@@ -27,7 +27,7 @@
   align-items: center;
   width: 100%;
   min-height: 60px;
-  background-color: #5dd8d6;
+  background-color: #08D9D6;
   color: #252A34;
   font-size: 20px;
 }
@@ -62,8 +62,8 @@
   width: 100%;
   margin-top: 10px;
   font-size: 20px;
-  background-color: #7c59ce;
-  color: #fff;
+  background-color: #08D9D6;
+  color: #252A34;
   border-radius: 10px;
   border: none;
   cursor: pointer;

@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import './Todo.css';
+import { data } from './data';
 
 export default function Todo(props) {
-  const [concluida, setConcluida] = useState(false);
-  const [concluirBotaoMsn, setConcluirBotaoMsn] = useState('Concluir tarefa');
+  const [concluirTarefa, setConcluirTarefa] = useState(data);
 
   function concluirEsta() {
-    if (!concluida) {
+    if (!props.todoConcluida) {
       props.concluirTarefa(props.todoNome, parseInt(props.todoVezes) + 1);
-      setConcluida(true);
-      setConcluirBotaoMsn('Tarefa concluída!');
+      setConcluirTarefa(data);
     }
   }
+
+  // Check if the key exists in concluirTarefa before accessing its properties
+  const todoInfo = concluirTarefa[props.todoNome] || { concluida: false };
 
   return (
     <div className="Todo">
@@ -20,13 +22,13 @@ export default function Todo(props) {
       <div className='vezesTodo'>{props.todoVezes}</div>
       <button
         className="concluirTodo"
-        style={{
-          background: concluida ? '#fff' : '#FF2E63',
-          color: concluida ? '#FF2E63' : '#fff',
-        }}
         onClick={concluirEsta}
+        style={{
+          background: props.todoConcluida ? '#fff' : '#ff4674',
+          color: props.todoConcluida ? '#ff4674' : '#fff',
+        }}
       >
-        {concluirBotaoMsn}
+        {props.todoConcluida ? 'Tarefa Feita' : 'Concluir tarefa'}
       </button>
       <button className="excluirTodo" onClick={() => props.excluirTarefa(props.todoNome)}>
         X

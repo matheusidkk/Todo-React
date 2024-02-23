@@ -1,60 +1,59 @@
 .CriadorTodo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100%;
-    width: 100%;
-  }
-  
-  .CriadorTodo .criadorNome,
-  .CriadorTodo .criadorVezes {
-    width: 70%;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    text-align: center;
-  }
-  
-  .CriadorTodo .criadorVezes {
-    width: 20%;
-  }
-  
-  .CriadorTodo .criadorCriar {
-    height: 40px;
-    width: 95%;
-    border-radius: 10px;
-    border: none;
-    margin-top: 15px;
-    background-color: #ba9dfd;
-    transition: background-color 0.2s;
-    cursor: pointer;
-  }
-  
-  .CriadorTodo .criadorCriar:hover {
-    background-color: #cab3ff;
-  }
-  
-  .CriadorTodo .criadorFechar {
-    height: 20px;
-    width: 110%;
-    border: none;
-    background-color: #452886;
-    color: #fff;
-    margin-top: -1px;
-    transition: background-color 0.2s;
-    cursor: pointer;
-  }
-  
-  .CriadorTodo .criadorFechar:hover {
-    background-color: #381b77;
-  }
-  
-  .criadorInputs {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 60%;
-    margin-top: 15px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+.CriadorTodo .criadorNome,
+.CriadorTodo .criadorVezes {
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+}
+
+.CriadorTodo .criadorCriar {
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #03817f;
+  color: #fff;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.CriadorTodo .criadorCriar:hover {
+  background-color: #006664;
+}
+
+.CriadorTodo .criadorFechar {
+  height: 20px;
+  width: 110%;
+  border: none;
+  background-color: #03817f;
+  color: #fff;
+  margin-top: -1px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.CriadorTodo .criadorFechar:hover {
+  background-color: #006664;
+}
+
+.nomesInputs {
+  display: grid;
+  grid-template-columns: 50% 2% 16%;
+  margin-top: 10px;
+  width: 90%;
+}
+
+.criadorInputs {
+  display: grid;
+  grid-template-columns: 50% 2% 16% 2% 30%;
+  width: 90%;
+  margin-top: 10px;
+}
